@@ -1,0 +1,11 @@
+
+What is the error in this code?
+
+byte b = 50;
+b = b * 50;
+
+Options
+b can not contain value 2500, limited by its range.
+* operator has converted b * 50 into int, which can not be converted to byte without casting. [Answer]✔
+b can not contain value 50.
+No error in this code
