@@ -18,5 +18,6 @@ public class InterestingAlphabets {
             System.out.println();
             ch--;
         }
+        scan.close();
     }
 }

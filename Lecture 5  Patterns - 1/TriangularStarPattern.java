@@ -15,6 +15,7 @@ class TriangularStarPattern {
             }
             System.out.println();
         }
+        scan.close();
     }
 
 }

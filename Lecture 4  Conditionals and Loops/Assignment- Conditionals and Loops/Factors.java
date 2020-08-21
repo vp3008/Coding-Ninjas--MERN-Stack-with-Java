@@ -12,6 +12,6 @@ public class Factors {
             if (n % i == 0)
                 System.out.print(i + " ");
         }
-
+        scan.close();
     }
 }

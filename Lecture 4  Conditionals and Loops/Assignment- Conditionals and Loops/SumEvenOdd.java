@@ -21,6 +21,6 @@ public class SumEvenOdd {
         }
 
         System.out.println(evenSum + " " + oddSum);
-
+        scan.close();
     }
 }

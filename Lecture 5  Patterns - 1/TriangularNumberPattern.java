@@ -15,6 +15,7 @@ class TriangularNumberPattern {
             }
             System.out.println();
         }
+        scan.close();
 
     }
 

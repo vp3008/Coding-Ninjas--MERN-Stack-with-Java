@@ -18,7 +18,7 @@ public class AlphaPattern {
             System.out.println();
             c++;
         }
-
+        scan.close();
     }
 
 }

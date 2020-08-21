@@ -16,6 +16,7 @@ class ReverseNumberPattern {
             }
             System.out.println();
         }
+        scan.close();
     }
 
 }

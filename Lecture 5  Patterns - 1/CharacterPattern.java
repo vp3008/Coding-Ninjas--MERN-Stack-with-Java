@@ -19,7 +19,7 @@ public class CharacterPattern {
             System.out.println();
             c++;
         }
-
+        scan.close();
     }
 
 }

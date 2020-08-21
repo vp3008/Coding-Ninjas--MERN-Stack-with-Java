@@ -14,5 +14,7 @@ public class FindPowerOfNumber {
             result = result * x;
         }
         System.out.println(result);
+        scan.close();
+
     }
 }
