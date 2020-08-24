@@ -1,0 +1,28 @@
+Given a linked list, find and return the midpoint.
+If the length of linked list is even, return the first mid point.
+Input format : Linked list elements (separated by space and terminated by -1)`
+
+Sample Input 1 :
+1 2 3 4 5 -1
+Sample Output 1 :
+3
+Sample Input 2 :
+1 2 3 4 -1
+Sample Output 2 :
+2
+
+public class Solution {
+	public static int printMiddel(LinkedListNode<Integer> head) {
+        if (head == null || head.next == null)
+            return head.data;
+        LinkedListNode<Integer> dummy = new LinkedListNode(0);
+        dummy.next = head;
+        LinkedListNode<Integer> slow = dummy;
+        LinkedListNode<Integer> fast = dummy;
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.data;
+    }
+}

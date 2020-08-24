@@ -1,0 +1,88 @@
+Sort a given linked list using Merge Sort.
+You don't need to print the elements, just sort the elements and return the head of updated LL.
+Input format :
+Linked list elements (separated by space and terminated by -1)
+Output format :
+Updated LL elements (separated by space)
+Constraints :
+1 <= Length of LL <= 1000
+Sample Input 1 :
+1 4 5 2 -1
+Sample Output 1 :
+1 2 4 5
+
+public class Solution {
+
+	public static LinkedListNode<Integer> mergeSort(LinkedListNode<Integer> head) {
+		// write your code here
+        if(head == null || head.next == null)
+            return head;
+        
+        return sort(head);
+		
+	}
+
+    
+    public static LinkedListNode<Integer> sort(LinkedListNode<Integer> head){
+        if(head == null || head.next == null)
+            return head;
+        
+        LinkedListNode<Integer> midNode = midNode(head);
+        LinkedListNode<Integer> nextToMid = midNode.next;
+        midNode.next = null;
+        
+        LinkedListNode<Integer> left = sort(head);
+        LinkedListNode<Integer> right = sort(nextToMid);
+        
+		LinkedListNode<Integer> sortedList = merge(left, right);
+        return sortedList;
+    }
+    
+    public static LinkedListNode<Integer> merge(LinkedListNode<Integer> left, LinkedListNode<Integer> right){
+        if(left == null)
+            return right;
+        if(right == null)
+            return left;
+        
+        LinkedListNode<Integer> cur1 = left;
+        LinkedListNode<Integer> cur2 = right;
+		LinkedListNode<Integer> resultList = new LinkedListNode<>(0);
+        LinkedListNode cur3 = resultList;
+        while(cur1 != null && cur2 != null)
+        {
+            if(cur1.data < cur2.data)
+            {
+                cur3.next = cur1;
+                cur1 = cur1.next;
+            }
+            else
+            {
+                cur3.next = cur2;
+                cur2 = cur2.next;
+            }
+            cur3 = cur3.next;
+        }
+        if(cur1 != null)
+            cur3.next = cur1;
+        if(cur2 != null)
+            cur3.next = cur2;
+        return resultList.next;
+	
+    }
+    
+    public static LinkedListNode<Integer> midNode(LinkedListNode<Integer> head){
+        if(head == null || head.next == null)
+            return head;
+        
+        LinkedListNode<Integer> dummy = new LinkedListNode<>(0);
+        dummy.next = head;
+        LinkedListNode<Integer> slow = dummy;
+        LinkedListNode<Integer> fast = dummy;
+        
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+}
