@@ -1,0 +1,22 @@
+Given a linked list, reverse it using recursion.
+You don't need to print the elements, just reverse the LL duplicates and return the head of updated LL.
+Input format : Linked list elements (separated by space and terminated by -1)`
+
+Sample Input 1 :
+1 2 3 4 5 -1
+Sample Output 1 :
+5 4 3 2 1
+
+
+public class Solution {
+	
+	public static LinkedListNode<Integer> reverse_R(LinkedListNode<Integer> head) {
+		if(head == null || head.next == null)
+            return head;
+        
+        LinkedListNode<Integer> smallHead = reverse_R(head.next);
+        head.next.next = head;
+        head.next = null;
+        return smallHead;
+	}
+}
