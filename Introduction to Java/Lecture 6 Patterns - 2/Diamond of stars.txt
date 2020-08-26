@@ -1,0 +1,51 @@
+import java.util.Scanner;
+public class Solution {
+    
+    public static void main(String[] args) {
+        // Write your code here
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        n = n/2 +1;
+        int i = 1;
+        while(i <= n){
+            int spaces = 1;
+            while(spaces <= n-i){
+                System.out.print(" ");
+                spaces++;
+            }
+            int j = 1;
+            while(j <= i){
+                System.out.print("*");
+                j++;
+            }
+            int k = 1;
+            while(k <= i-1){
+                System.out.print("*");
+                k++;
+            }
+            i++;
+            System.out.println();
+        }
+        i = 1;
+        while(i <= n-1){
+            int spaces = 1;
+            while(spaces <= i){
+                System.out.print(" ");
+                spaces++;
+            }
+            int j = 1;
+            while(j <= n-i){
+                System.out.print("*");
+                j++;
+            }
+            int k = 1;
+            while(k <= j-2){
+                System.out.print("*");
+                k++;
+            }
+
+            i++;
+            System.out.println();
+        }
+    }
+}
